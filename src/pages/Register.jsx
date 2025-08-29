@@ -10,6 +10,7 @@ function Register(){
     const[email, setEmail] = useState("");
     const[password, setPassword] = useState("");
     const[role,setRole] = useState("");
+    const[username , setUsername] = useState("");
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -22,7 +23,7 @@ function Register(){
             //Register through API
 
             const res= await axios.post("http://localhost:8081/users",{
-                email, password, role
+                email, password, username, role
             });
 dispatch({type: "REGISTER_SUCCESS",payload: res.data});
 navigate("/dashboard");
@@ -36,8 +37,9 @@ navigate("/dashboard");
       <form onSubmit={handleRegister} className='bg-white p-6 rounded shadow w-80'>
         <h2 className='text-xl font-bold mb-4 text-center'>Register form</h2>
 
-        <input placeholder='john@mail.com' className='border p-2 w-full mb-3' type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input placeholder='anu@gmail.com' className='border p-2 w-full mb-3' type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input placeholder='******' className='border p-2 w-full mb-3' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input placeholder='ananthi' className='border p-2 w-full mb-3' type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
         <select className='border p-2 w-full mb-3' value={role} onChange={(e) => setRole(e.target.value)} name="" id="">
           <option value="user">User</option>
           <option value="admin">Admin</option>

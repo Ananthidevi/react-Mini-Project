@@ -1,5 +1,11 @@
 {
     "users":[
+        {
+        "id" : "9cvv",
+        "email" : "ananthi123@mail.com",
+        "password" : "ananthi@12345",
+        "role" : "admin"
         
+        }
     ]
 }

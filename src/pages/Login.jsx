@@ -21,11 +21,11 @@ function Login() {
         try{
             const res = await axios.get("http://localhost:8081/users");//this id from json server
 
-            const user = res.data.find(data=> data.email === email && data.password === password);
+            const user = res.data.find(data=> data.email === email && data.password === password);//db.json stored data both are match user will be true
 
             if(user){
                 dispatch({type: "LOGIN_SUCCESS", payload:user});
-                navigate("/dashbaord");
+                navigate("/dashboard");
             }else{
                 dispatch({type: "LOGIN-ERROR", paylaod: "Invalid credentials"});
             
